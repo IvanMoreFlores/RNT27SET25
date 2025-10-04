@@ -5,7 +5,12 @@ import Button from '../../../components/button';
 import useRegister from './useRegister';
 import Input from '../../../components/input';
 
-const RegisterScreen = () => {
+const RegisterScreen = ({
+  route,
+}: {
+  route: { params: { email: string } };
+}) => {
+  const { email } = route.params;
   const { handleRegister, handleGoBack } = useRegister();
   return (
     <Layout>
@@ -13,7 +18,7 @@ const RegisterScreen = () => {
         <Text>Register</Text>
         <View style={styles.form}>
           <Input label="Name" />
-          <Input label="Email" />
+          <Input label="Email" value={email} />
           <Input label="Password" />
           <Button text="Register" variant="primary" onPress={handleRegister} />
           <Button text="Regresar" variant="secondary" onPress={handleGoBack} />

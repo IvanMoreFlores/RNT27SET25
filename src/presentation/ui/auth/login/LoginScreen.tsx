@@ -6,7 +6,7 @@ import Button from '../../../components/button';
 import Input from '../../../components/input';
 
 const LoginScreen = () => {
-  const { handleLogin } = useLogin();
+  const { handleLogin, handleRegister, form, setForm } = useLogin();
 
   return (
     <Layout>
@@ -14,10 +14,24 @@ const LoginScreen = () => {
         <Text style={styles.title}>Login</Text>
         <Text style={styles.subtitle}>Bienvenido de nuevo</Text>
         <View style={styles.form}>
-          <Input label="Email" placeholder="Email" />
-          <Input label="Password" placeholder="Password" />
-          <Button text="Login" variant="primary" />
-          <Button text="Register" variant="secondary" onPress={handleLogin} />
+          <Input
+            label="Email"
+            placeholder="Email"
+            value={form.email}
+            onChangeText={text => setForm({ ...form, email: text })}
+          />
+          <Input
+            label="Password"
+            placeholder="Password"
+            value={form.password}
+            onChangeText={text => setForm({ ...form, password: text })}
+          />
+          <Button text="Login" variant="primary" onPress={handleLogin} />
+          <Button
+            text="Register"
+            variant="secondary"
+            onPress={handleRegister}
+          />
         </View>
       </View>
     </Layout>
