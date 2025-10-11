@@ -27,13 +27,17 @@ const styles = StyleSheet.create({
     gap: RFValue(10),
   },
   label: {
-    fontSize: RFValue(16),
-    fontWeight: 'bold',
+    fontSize: RFValue(32),
+    fontFamily: 'FormulaCondensed-Bold',
+    letterSpacing: RFValue(1),
   },
   input: {
     borderWidth: RFValue(1),
     borderColor: 'gray',
     padding: RFValue(10),
     borderRadius: RFValue(5),
+    fontSize: RFValue(18),
+    fontFamily: 'NeueMontrealMedium',
+    letterSpacing: RFValue(1),
   },
 });

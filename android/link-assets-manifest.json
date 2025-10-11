@@ -1,0 +1,25 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/presentation/assets/fonts/FormulaCondensed-Bold.otf",
+      "sha1": "20d9f9d207d6087ea8e0939cfe70cbef4189a272"
+    },
+    {
+      "path": "src/presentation/assets/fonts/FormulaCondensed-Light.otf",
+      "sha1": "08e80478e3a45aae3ff92bda3cc194dfcfdfbf47"
+    },
+    {
+      "path": "src/presentation/assets/fonts/NeueMontrealBold.otf",
+      "sha1": "8a9ff2b61316994234dae5eaaaa2b99de1b29205"
+    },
+    {
+      "path": "src/presentation/assets/fonts/NeueMontrealMedium.otf",
+      "sha1": "a1fde8e729ce0e78511dc692c8390836db6b8d92"
+    },
+    {
+      "path": "src/presentation/assets/fonts/NeueMontrealRegular.otf",
+      "sha1": "864b3c35552d8c45b0a4467d8262a111f103f015"
+    }
+  ]
+}

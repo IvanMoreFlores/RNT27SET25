@@ -37,8 +37,9 @@ const styles = StyleSheet.create({
     borderRadius: RFValue(5),
   },
   text: {
-    fontSize: RFValue(16),
-    fontWeight: 'bold',
+    fontSize: RFValue(24),
+    fontFamily: 'FormulaCondensed-Bold',
+    letterSpacing: RFValue(1),
     textAlign: 'center',
   },
   small: {
