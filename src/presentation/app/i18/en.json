@@ -1,0 +1,19 @@
+{
+  "auth": {
+    "login": {
+      "title": "Welcome back",
+      "email": "Email",
+      "password": "Password",
+      "login": "Login",
+      "register": "Register"
+    },
+    "register": {
+      "title": "Register",
+      "name": "Name",
+      "email": "Email",
+      "password": "Password",
+      "register": "Register",
+      "back": "Back"
+    }
+  }
+}

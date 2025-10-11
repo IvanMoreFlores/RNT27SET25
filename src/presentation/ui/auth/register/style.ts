@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { RFValue } from '../../../utils/responsive';
 
 const styles = StyleSheet.create({
   container: {
@@ -9,8 +10,13 @@ const styles = StyleSheet.create({
   },
   form: {
     width: '100%',
-    gap: 10,
-    padding: 24,
+    gap: RFValue(10),
+    padding: RFValue(24),
+  },
+  title: {
+    fontSize: RFValue(32),
+    fontFamily: 'FormulaCondensed-Bold',
+    letterSpacing: RFValue(1),
   },
 });
 

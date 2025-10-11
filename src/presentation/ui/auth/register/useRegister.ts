@@ -1,5 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface RegisterForm {
   name: string;
@@ -8,6 +9,7 @@ interface RegisterForm {
 }
 
 const useRegister = () => {
+  const { t, i18n } = useTranslation();
   const [form, setForm] = useState<RegisterForm>({
     name: '',
     email: '',
@@ -28,6 +30,8 @@ const useRegister = () => {
     handleGoBack,
     form,
     setForm,
+    t,
+    i18n,
   };
 };
 

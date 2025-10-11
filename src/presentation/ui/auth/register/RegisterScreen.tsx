@@ -13,18 +13,36 @@ const RegisterScreen = ({
   route: { params: { email: string } };
 }) => {
   const { email } = route.params;
-  const { handleRegister, handleGoBack } = useRegister();
+  const { handleRegister, handleGoBack, t } = useRegister();
   return (
     <Layout>
       <View style={styles.container}>
         <Logo width={RFValue(350)} height={RFValue(200)} />
-        <Text>Register</Text>
+        <Text style={styles.title}>{t('auth.register.title')}</Text>
         <View style={styles.form}>
-          <Input label="Name" />
-          <Input label="Email" value={email} />
-          <Input label="Password" />
-          <Button text="Register" variant="primary" onPress={handleRegister} />
-          <Button text="Regresar" variant="secondary" onPress={handleGoBack} />
+          <Input
+            label={t('auth.register.name')}
+            placeholder={t('auth.register.name')}
+          />
+          <Input
+            label={t('auth.register.email')}
+            placeholder={t('auth.register.email')}
+            value={email}
+          />
+          <Input
+            label={t('auth.register.password')}
+            placeholder={t('auth.register.password')}
+          />
+          <Button
+            text={t('auth.register.register')}
+            variant="primary"
+            onPress={handleRegister}
+          />
+          <Button
+            text={t('auth.register.back')}
+            variant="secondary"
+            onPress={handleGoBack}
+          />
         </View>
       </View>
     </Layout>
