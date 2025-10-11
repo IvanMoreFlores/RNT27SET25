@@ -19,8 +19,8 @@ const LoginScreen = () => {
           <Input
             label={t('auth.login.email')}
             placeholder={t('auth.login.email')}
-            value={form.email}
-            onChangeText={text => setForm({ ...form, email: text })}
+            value={form.username}
+            onChangeText={text => setForm({ ...form, username: text })}
           />
           <Input
             label={t('auth.login.password')}

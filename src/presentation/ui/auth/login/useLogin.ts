@@ -1,33 +1,34 @@
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { AuthUseCases } from '../../../../application/use-cases/auth/auth.use-cases';
+import { AuthInfrastructure } from '../../../../infrastructure/auth';
+import { Alert } from 'react-native';
 
 interface LoginForm {
-  email: string;
+  username: string;
   password: string;
 }
 
 const useLogin = () => {
   const { t, i18n } = useTranslation();
   const [form, setForm] = useState<LoginForm>({
-    email: '',
+    username: '',
     password: '',
   });
   const navigation = useNavigation();
 
-  const handleLogin = () => {
-    fetch('https://dummyjson.com/auth/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        username: 'emilys',
-        password: 'emilyspass',
-        expiresInMins: 30, // optional, defaults to 60
-      }),
-      credentials: 'include', // Include cookies (e.g., accessToken) in the request
-    })
-      .then(res => res.json())
-      .then(console.log);
+  const handleLogin = async () => {
+    const authUseCases = new AuthUseCases(new AuthInfrastructure());
+    const { status, error } = await authUseCases.login(
+      form.username,
+      form.password,
+    );
+    if (status === 200) {
+      navigation.navigate('Home' as never);
+    } else {
+      Alert.alert('Error', error.message);
+    }
   };
 
   const handleRegister = () => {
