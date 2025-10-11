@@ -5,6 +5,7 @@ import {
   TextInputProps,
   View,
 } from 'react-native';
+import { RFValue } from '../../utils/responsive';
 
 interface InputProps extends TextInputProps {
   label: string;
@@ -23,16 +24,16 @@ export default Input;
 
 const styles = StyleSheet.create({
   container: {
-    gap: 10,
+    gap: RFValue(10),
   },
   label: {
-    fontSize: 16,
+    fontSize: RFValue(16),
     fontWeight: 'bold',
   },
   input: {
-    borderWidth: 1,
+    borderWidth: RFValue(1),
     borderColor: 'gray',
-    padding: 10,
-    borderRadius: 5,
+    padding: RFValue(10),
+    borderRadius: RFValue(5),
   },
 });
