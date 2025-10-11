@@ -5,6 +5,7 @@ import useLogin from './useLogin';
 import Button from '../../../components/button';
 import Input from '../../../components/input';
 import Logo from '../../../assets/svg/logo.svg';
+import { RFValue } from '../../../utils/responsive';
 
 const LoginScreen = () => {
   const { handleLogin, handleRegister, form, setForm } = useLogin();
@@ -12,7 +13,7 @@ const LoginScreen = () => {
   return (
     <Layout>
       <View style={styles.container}>
-        <Logo width={300} height={150} />
+        <Logo width={RFValue(350)} height={RFValue(200)} />
         <View style={styles.form}>
           <Input
             label="Email"
