@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { StorageAdapter } from '../adapters/storage';
+import Config from 'react-native-config';
 
 const api = axios.create({
-  baseURL: 'https://dummyjson.com',
+  baseURL: Config.API_URL,
   headers: {
     'Content-Type': 'application/json',
   },

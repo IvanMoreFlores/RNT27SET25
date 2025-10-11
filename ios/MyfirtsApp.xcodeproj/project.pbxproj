@@ -17,6 +17,7 @@
 		BA2FFDF9D3B94F899B2A38CE /* NeueMontrealBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D35B8B7119B4477A91B9BE00 /* NeueMontrealBold.otf */; };
 		9A34770FFCD84880A40197D3 /* NeueMontrealMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 78C6B52011BB4942A41754B2 /* NeueMontrealMedium.otf */; };
 		85EEBB3AFF7C41AC89C2D7D7 /* NeueMontrealRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 974FD87B1A45446C97066078 /* NeueMontrealRegular.otf */; };
+		F3E49979866B48BB9F17F207 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 84B6FA682FFF482880E1B851 /* Config.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		D35B8B7119B4477A91B9BE00 /* NeueMontrealBold.otf */ = {isa = PBXFileReference; name = "NeueMontrealBold.otf"; path = "../src/presentation/assets/fonts/NeueMontrealBold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		78C6B52011BB4942A41754B2 /* NeueMontrealMedium.otf */ = {isa = PBXFileReference; name = "NeueMontrealMedium.otf"; path = "../src/presentation/assets/fonts/NeueMontrealMedium.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		974FD87B1A45446C97066078 /* NeueMontrealRegular.otf */ = {isa = PBXFileReference; name = "NeueMontrealRegular.otf"; path = "../src/presentation/assets/fonts/NeueMontrealRegular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		84B6FA682FFF482880E1B851 /* Config.xcconfig */ = {isa = PBXFileReference; name = "Config.xcconfig"; path = "Config.xcconfig"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = text.xcconfig; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				84B6FA682FFF482880E1B851 /* Config.xcconfig */,
 				13B07FAE1A68108700A75B9A /* MyfirtsApp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
@@ -182,6 +185,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3E49979866B48BB9F17F207 /* Config.xcconfig in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				8ED74218B7A057045C2DD035 /* PrivacyInfo.xcprivacy in Resources */,
@@ -411,6 +415,7 @@
 				USE_HERMES = true;
 			};
 			name = Debug;
+			baseConfigurationReference = 84B6FA682FFF482880E1B851 /* Config.xcconfig */;
 		};
 		83CBBA211A601CBA00E9B192 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -479,6 +484,7 @@
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
+			baseConfigurationReference = 84B6FA682FFF482880E1B851 /* Config.xcconfig */;
 		};
 /* End XCBuildConfiguration section */
 
