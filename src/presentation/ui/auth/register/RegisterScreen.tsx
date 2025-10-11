@@ -4,6 +4,8 @@ import styles from './style';
 import Button from '../../../components/button';
 import useRegister from './useRegister';
 import Input from '../../../components/input';
+import Logo from '../../../assets/svg/logo.svg';
+import { RFValue } from '../../../utils/responsive';
 
 const RegisterScreen = ({
   route,
@@ -15,6 +17,7 @@ const RegisterScreen = ({
   return (
     <Layout>
       <View style={styles.container}>
+        <Logo width={RFValue(350)} height={RFValue(200)} />
         <Text>Register</Text>
         <View style={styles.form}>
           <Input label="Name" />
