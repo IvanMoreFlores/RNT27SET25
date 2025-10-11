@@ -1,9 +1,10 @@
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import Layout from '../../../components/layout';
 import styles from './styles';
 import useLogin from './useLogin';
 import Button from '../../../components/button';
 import Input from '../../../components/input';
+import Logo from '../../../assets/svg/logo.svg';
 
 const LoginScreen = () => {
   const { handleLogin, handleRegister, form, setForm } = useLogin();
@@ -11,8 +12,7 @@ const LoginScreen = () => {
   return (
     <Layout>
       <View style={styles.container}>
-        <Text style={styles.title}>Login</Text>
-        <Text style={styles.subtitle}>Bienvenido de nuevo</Text>
+        <Logo width={300} height={150} />
         <View style={styles.form}>
           <Input
             label="Email"

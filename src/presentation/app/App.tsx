@@ -1,9 +1,9 @@
-// import Navigator from './navigate/navigator';
-import DrawerNavigator from './navigate/drawer';
-import TabNavigator from './navigate/tab';
+import Navigator from './navigate/navigator';
+// import DrawerNavigator from './navigate/drawer';
+// import TabNavigator from './navigate/tab';
 
 const App = () => {
-  return <DrawerNavigator />;
+  return <Navigator />;
 };
 
 export default App;
