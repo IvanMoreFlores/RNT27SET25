@@ -1,4 +1,4 @@
-import { View } from 'react-native';
+import { Text, View } from 'react-native';
 import Layout from '../../../components/layout';
 import styles from './styles';
 import useLogin from './useLogin';
@@ -14,6 +14,7 @@ const LoginScreen = () => {
     <Layout>
       <View style={styles.container}>
         <Logo width={RFValue(350)} height={RFValue(200)} />
+        <Text style={styles.title}>Bienvenido de nuevo</Text>
         <View style={styles.form}>
           <Input
             label="Email"

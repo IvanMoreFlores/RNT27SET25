@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     fontSize: RFValue(32),
     fontFamily: 'FormulaCondensed-Bold',
     letterSpacing: RFValue(1),
+    color: '#262626',
   },
   input: {
     borderWidth: RFValue(1),
@@ -39,5 +40,6 @@ const styles = StyleSheet.create({
     fontSize: RFValue(18),
     fontFamily: 'NeueMontrealMedium',
     letterSpacing: RFValue(1),
+    color: '#262626',
   },
 });

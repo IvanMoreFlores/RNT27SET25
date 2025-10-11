@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { RFValue } from '../../../utils/responsive';
 
 const styles = StyleSheet.create({
   container: {
@@ -13,8 +14,9 @@ const styles = StyleSheet.create({
     padding: 24,
   },
   title: {
-    fontSize: 24,
-    fontWeight: 'bold',
+    fontSize: RFValue(32),
+    fontFamily: 'FormulaCondensed-Bold',
+    letterSpacing: RFValue(1),
   },
   subtitle: {
     fontSize: 16,

@@ -55,17 +55,17 @@ const styles = StyleSheet.create({
     borderRadius: RFValue(5),
   },
   primary: {
-    backgroundColor: 'blue',
+    backgroundColor: '#262626',
   },
   secondary: {
     backgroundColor: 'transparent',
     borderWidth: RFValue(1),
-    borderColor: 'blue',
+    borderColor: '#262626',
   },
   text_primary: {
     color: 'white',
   },
   text_secondary: {
-    color: 'blue',
+    color: '#262626',
   },
 });
