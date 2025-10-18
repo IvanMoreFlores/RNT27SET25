@@ -15,5 +15,25 @@
       "register": "Registrarse",
       "back": "Regresar"
     }
+  },
+  "profile": {
+    "title": "Perfil",
+    "content": {
+      "name": "Nombre",
+      "email": "Email",
+      "language": "Idioma",
+      "logout": "Cerrar sesión"
+    },
+    "language": {
+      "english": "Inglés",
+      "spanish": "Español",
+      "system": "Sistema"
+    },
+    "theme": {
+      "title": "Tema",
+      "light": "Claro",
+      "dark": "Oscuro",
+      "system": "Sistema"
+    }
   }
 }

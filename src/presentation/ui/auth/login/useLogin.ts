@@ -4,6 +4,8 @@ import { AuthUseCases } from '../../../../application/use-cases/auth/auth.use-ca
 import { AuthInfrastructure } from '../../../../infrastructure/auth';
 import { Alert } from 'react-native';
 import { useForm } from '../../../hooks/useForm';
+import { StorageAdapter } from '../../../../application/adapters/storage';
+import { StorageMMKVAdapter } from '../../../../application/adapters/storageMMKV';
 
 interface LoginForm {
   username: string;
@@ -37,14 +39,25 @@ const useLogin = () => {
 
   const handleLogin = async () => {
     const authUseCases = new AuthUseCases(new AuthInfrastructure());
-    const { status, error } = await authUseCases.login(
-      form.username,
-      form.password,
-    );
-    if (status === 200) {
-      navigation.navigate('Home' as never);
+    const data = await authUseCases.login(form.username, form.password);
+    if ('status' in data && data.status === 200) {
+      if ('response' in data) {
+        await StorageAdapter.setItem('token', data.response.accessToken);
+        StorageMMKVAdapter.setItem('username', data.response.username);
+        StorageMMKVAdapter.setItem('email', data.response.email);
+        StorageMMKVAdapter.setItem('image', data.response.image);
+        navigation.reset({
+          index: 0,
+          routes: [{ name: 'Home' as never }],
+        });
+      }
     } else {
-      Alert.alert('Error', error.message);
+      if ('error' in data) {
+        Alert.alert(
+          'Error',
+          data.error?.message || 'An unexpected error occurred',
+        );
+      }
     }
   };
 

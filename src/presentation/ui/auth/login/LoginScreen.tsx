@@ -6,14 +6,19 @@ import Button from '../../../components/button';
 import Input from '../../../components/input';
 import Logo from '../../../assets/svg/logo.svg';
 import { RFValue } from '../../../utils/responsive';
+import { ThemeContext } from '../../../app/theme/theme';
+import { useContext } from 'react';
 
 const LoginScreen = () => {
+  const { theme } = useContext(ThemeContext);
   const { handleLogin, handleRegister, form, onChange, isValid, t } =
     useLogin();
 
   return (
     <Layout>
-      <View style={styles.container}>
+      <View
+        style={[styles.container, { backgroundColor: theme?.colors.primary }]}
+      >
         <Logo width={RFValue(350)} height={RFValue(200)} />
         <Text style={styles.title}>{t('auth.login.title')}</Text>
         <View style={styles.form}>

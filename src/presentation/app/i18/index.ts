@@ -3,6 +3,7 @@ import { initReactI18next } from 'react-i18next';
 
 import es from './es.json';
 import en from './en.json';
+import { StorageMMKVAdapter } from '../../../application/adapters/storageMMKV';
 
 const resources = {
   es: {
@@ -15,7 +16,7 @@ const resources = {
 
 i18n.use(initReactI18next).init({
   resources,
-  lng: 'en',
+  lng: StorageMMKVAdapter.getItem('language') || 'es',
   fallbackLng: 'es',
   interpolation: {
     escapeValue: false,
