@@ -6,9 +6,10 @@ import Button from '../../../components/button';
 import Input from '../../../components/input';
 import Logo from '../../../assets/svg/logo.svg';
 import { RFValue } from '../../../utils/responsive';
+import { Formik } from 'formik';
 
 const LoginScreen = () => {
-  const { handleLogin, handleRegister, form, setForm, t } = useLogin();
+  const { handleRegister, formik, t } = useLogin();
 
   return (
     <Layout>
@@ -16,28 +17,41 @@ const LoginScreen = () => {
         <Logo width={RFValue(350)} height={RFValue(200)} />
         <Text style={styles.title}>{t('auth.login.title')}</Text>
         <View style={styles.form}>
-          <Input
-            label={t('auth.login.email')}
-            placeholder={t('auth.login.email')}
-            value={form.username}
-            onChangeText={text => setForm({ ...form, username: text })}
-          />
-          <Input
-            label={t('auth.login.password')}
-            placeholder={t('auth.login.password')}
-            value={form.password}
-            onChangeText={text => setForm({ ...form, password: text })}
-          />
-          <Button
-            text={t('auth.login.login')}
-            variant="primary"
-            onPress={handleLogin}
-          />
-          <Button
-            text={t('auth.login.register')}
-            variant="secondary"
-            onPress={handleRegister}
-          />
+          <Formik
+            initialValues={formik.initialValues}
+            onSubmit={values => console.log(values)}
+          >
+            {() => (
+              <>
+                <Input
+                  label={t('auth.login.email')}
+                  placeholder={t('auth.login.email')}
+                  value={formik.values.username}
+                  onChangeText={text => formik.setFieldValue('username', text)}
+                  error={formik.errors.username}
+                />
+                <Input
+                  label={t('auth.login.password')}
+                  placeholder={t('auth.login.password')}
+                  secureTextEntry={true}
+                  value={formik.values.password}
+                  onChangeText={text => formik.setFieldValue('password', text)}
+                  error={formik.errors.password}
+                />
+                <Button
+                  text={t('auth.login.login')}
+                  variant="primary"
+                  disabled={formik.isValidating}
+                  onPress={formik.handleSubmit}
+                />
+                <Button
+                  text={t('auth.login.register')}
+                  variant="secondary"
+                  onPress={handleRegister}
+                />
+              </>
+            )}
+          </Formik>
         </View>
       </View>
     </Layout>

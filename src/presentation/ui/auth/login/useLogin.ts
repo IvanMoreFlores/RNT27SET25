@@ -1,9 +1,10 @@
 import { useNavigation } from '@react-navigation/native';
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AuthUseCases } from '../../../../application/use-cases/auth/auth.use-cases';
 import { AuthInfrastructure } from '../../../../infrastructure/auth';
 import { Alert } from 'react-native';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 interface LoginForm {
   username: string;
@@ -12,17 +13,25 @@ interface LoginForm {
 
 const useLogin = () => {
   const { t, i18n } = useTranslation();
-  const [form, setForm] = useState<LoginForm>({
-    username: '',
-    password: '',
+  const formik = useFormik<LoginForm>({
+    initialValues: {
+      username: '',
+      password: '',
+    },
+    validationSchema: Yup.object().shape({
+      username: Yup.string().required('Username es requerido'),
+      password: Yup.string().required('Password es requerido'),
+    }),
+    onSubmit: () => handleLogin(),
   });
+
   const navigation = useNavigation();
 
   const handleLogin = async () => {
     const authUseCases = new AuthUseCases(new AuthInfrastructure());
     const { status, error } = await authUseCases.login(
-      form.username,
-      form.password,
+      formik.values.username,
+      formik.values.password,
     );
     if (status === 200) {
       navigation.navigate('Home' as never);
@@ -38,8 +47,7 @@ const useLogin = () => {
   return {
     handleLogin,
     handleRegister,
-    form,
-    setForm,
+    formik,
     t,
     i18n,
   };

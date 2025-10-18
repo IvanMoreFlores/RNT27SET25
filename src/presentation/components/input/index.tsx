@@ -9,6 +9,7 @@ import { RFValue } from '../../utils/responsive';
 
 interface InputProps extends TextInputProps {
   label: string;
+  error?: string;
 }
 
 const Input = ({ label, ...props }: InputProps) => {
@@ -16,6 +17,7 @@ const Input = ({ label, ...props }: InputProps) => {
     <View style={styles.container}>
       <Text style={styles.label}>{label}</Text>
       <TextInput {...props} style={styles.input} />
+      {props.error && <Text style={styles.error}>{props.error}</Text>}
     </View>
   );
 };
@@ -41,5 +43,11 @@ const styles = StyleSheet.create({
     fontFamily: 'NeueMontrealMedium',
     letterSpacing: RFValue(1),
     color: '#262626',
+  },
+  error: {
+    fontSize: RFValue(12),
+    fontFamily: 'NeueMontrealMedium',
+    letterSpacing: RFValue(1),
+    color: 'red',
   },
 });
