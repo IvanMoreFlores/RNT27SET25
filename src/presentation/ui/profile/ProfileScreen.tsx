@@ -6,7 +6,7 @@ import Button from '../../components/button';
 import { StorageMMKVAdapter } from '../../../application/adapters/storageMMKV';
 import TextComponent from '../../components/text';
 import RadioButton from '../../components/radio-button';
-import { Context, useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import i18n from '../../app/i18';
 import useStyles from './style';
@@ -16,9 +16,7 @@ const ProfileScreen = () => {
   const navigation = useNavigation();
   const { t } = useTranslation();
   const styles = useStyles();
-  const { setTheme: setThemeContext } = useContext<{
-    setTheme: (theme: string) => void;
-  }>(ThemeContext as unknown as Context<{ setTheme: (theme: string) => void }>);
+  const { setTheme: setThemeContext } = useContext(ThemeContext);
   const [language, setLanguage] = useState<string>(
     StorageMMKVAdapter.getItem('language') || 'en',
   );

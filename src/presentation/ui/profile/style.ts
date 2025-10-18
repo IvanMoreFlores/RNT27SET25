@@ -5,13 +5,12 @@ import { ThemeContext } from '../../app/provider/theme';
 
 const useStyles = () => {
   const { theme } = useContext(ThemeContext);
-  console.log('theme', theme);
   return StyleSheet.create({
     container: {
       flex: 1,
       padding: RFValue(24),
       gap: RFValue(16),
-      backgroundColor: theme?.colors.primary,
+      backgroundColor: theme.colors.primary,
     },
     infoContainer: {
       gap: RFValue(16),
