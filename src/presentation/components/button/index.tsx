@@ -21,7 +21,13 @@ const Button = ({
   return (
     <TouchableOpacity
       {...rest}
-      style={[styles.button, styles[variant], styles[size]]}
+      style={[
+        styles.button,
+        styles[variant],
+        styles[size],
+        props.disabled && styles.disabled,
+      ]}
+      disabled={props.disabled}
     >
       {props.children}
       <Text style={[styles.text, styles[`text_${variant}`]]}>{text}</Text>
@@ -67,5 +73,8 @@ const styles = StyleSheet.create({
   },
   text_secondary: {
     color: '#262626',
+  },
+  disabled: {
+    opacity: 0.5,
   },
 });
