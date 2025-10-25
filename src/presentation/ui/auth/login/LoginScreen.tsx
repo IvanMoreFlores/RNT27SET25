@@ -6,8 +6,8 @@ import Button from '../../../components/button';
 import Input from '../../../components/input';
 import Logo from '../../../assets/svg/logo.svg';
 import { RFValue } from '../../../utils/responsive';
-import { ThemeContext } from '../../../app/theme/theme';
 import { useContext } from 'react';
+import { ThemeContext } from '../../../app/provider/theme';
 
 const LoginScreen = () => {
   const { theme } = useContext(ThemeContext);
