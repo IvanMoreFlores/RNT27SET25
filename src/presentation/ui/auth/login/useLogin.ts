@@ -48,7 +48,7 @@ const useLogin = () => {
         StorageMMKVAdapter.setItem('image', data.response.image);
         navigation.reset({
           index: 0,
-          routes: [{ name: 'Home' as never }],
+          routes: [{ name: 'Tab' as never }],
         });
       }
     } else {

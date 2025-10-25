@@ -22,7 +22,11 @@
       "name": "Name",
       "email": "Email",
       "language": "Language",
-      "logout": "Logout"
+      "logout": "Logout",
+      "photo": "Take a photo",
+      "permissions": "Permissions",
+      "camera": "Camera",
+      "readMediaImages": "Read media images"
     },
     "language": {
       "english": "English",

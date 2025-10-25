@@ -14,7 +14,7 @@ const SplashScreen = () => {
       if (token) {
         navigation.reset({
           index: 0,
-          routes: [{ name: 'Profile' as never }],
+          routes: [{ name: 'Tab' as never }],
         });
       } else {
         navigation.reset({

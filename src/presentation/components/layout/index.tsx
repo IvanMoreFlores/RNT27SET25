@@ -1,5 +1,11 @@
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-import { KeyboardAvoidingView, Platform, StyleSheet } from 'react-native';
+import {
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+} from 'react-native';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -10,7 +16,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 20}
           style={styles.container}
         >
-          {children}
+          <StatusBar barStyle="dark-content" />
+          <ScrollView style={styles.container}>{children}</ScrollView>
         </KeyboardAvoidingView>
       </SafeAreaView>
     </SafeAreaProvider>

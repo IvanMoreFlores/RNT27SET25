@@ -5,6 +5,8 @@ import RegisterScreen from '../../ui/auth/register/RegisterScreen';
 import HomeScreen from '../../ui/home/HomeScreen';
 import SplashScreen from '../../ui/splash/SplashScreen';
 import ProfileScreen from '../../ui/profile/ProfileScreen';
+import TabNavigator from './tab';
+import DrawerNavigator from './drawer';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +22,8 @@ const Navigator = () => {
         <Stack.Screen name="Register" component={RegisterScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Profile" component={ProfileScreen} />
+        <Stack.Screen name="Tab" component={TabNavigator} />
+        <Stack.Screen name="Drawer" component={DrawerNavigator} />
       </Stack.Navigator>
     </NavigationContainer>
   );

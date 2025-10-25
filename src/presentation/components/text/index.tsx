@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     fontWeight: 'normal',
   },
   denary: {
-    fontSize: RFValue(12),
+    fontSize: RFValue(10),
     fontWeight: 'normal',
   },
 });

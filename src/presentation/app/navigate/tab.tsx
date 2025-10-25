@@ -3,7 +3,8 @@ import HomeScreen from '../../ui/home/HomeScreen';
 import CategoryScreen from '../../ui/category/CategoryScreen';
 import FavoriteScreen from '../../ui/favorite/FavoriteScreen';
 import ProfileScreen from '../../ui/profile/ProfileScreen';
-import { NavigationContainer } from '@react-navigation/native';
+import MyTabBar from './tabBar';
+// import { NavigationContainer } from '@react-navigation/native';
 
 const Tabs = createBottomTabNavigator({
   screens: {
@@ -16,14 +17,16 @@ const Tabs = createBottomTabNavigator({
 
 const TabNavigator = () => {
   return (
-    <NavigationContainer>
-      <Tabs.Navigator screenOptions={{ headerShown: false }}>
-        <Tabs.Screen name="Home" component={HomeScreen} />
-        <Tabs.Screen name="Category" component={CategoryScreen} />
-        <Tabs.Screen name="Favorite" component={FavoriteScreen} />
-        <Tabs.Screen name="Profile" component={ProfileScreen} />
-      </Tabs.Navigator>
-    </NavigationContainer>
+    <Tabs.Navigator
+      tabBar={props => <MyTabBar {...props} />}
+      initialRouteName="Home"
+      screenOptions={{ headerShown: false }}
+    >
+      <Tabs.Screen name="Home" component={HomeScreen} />
+      <Tabs.Screen name="Category" component={CategoryScreen} />
+      <Tabs.Screen name="Favorite" component={FavoriteScreen} />
+      <Tabs.Screen name="Profile" component={ProfileScreen} />
+    </Tabs.Navigator>
   );
 };
 

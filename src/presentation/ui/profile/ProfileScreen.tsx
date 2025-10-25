@@ -1,64 +1,30 @@
-import { Image, View } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 import Layout from '../../components/layout';
 import { StorageAdapter } from '../../../application/adapters/storage';
-import { useNavigation } from '@react-navigation/native';
 import Button from '../../components/button';
 import { StorageMMKVAdapter } from '../../../application/adapters/storageMMKV';
 import TextComponent from '../../components/text';
 import RadioButton from '../../components/radio-button';
-import { useContext, useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import i18n from '../../app/i18';
-import useStyles from './style';
-import { ThemeContext } from '../../app/provider/theme';
+import useProfile from './useProfile';
+import { Camera } from 'react-native-vision-camera';
 
 const ProfileScreen = () => {
-  const navigation = useNavigation();
-  const { t } = useTranslation();
-  const styles = useStyles();
-  const { setTheme: setThemeContext } = useContext(ThemeContext);
-  const [language, setLanguage] = useState<string>(
-    StorageMMKVAdapter.getItem('language') || 'en',
-  );
-  const [theme, setTheme] = useState<string>(
-    StorageMMKVAdapter.getItem('theme') || 'light',
-  );
-
-  const handleLanguageChange = (value: 'en' | 'es') => {
-    if (value === 'en') {
-      StorageMMKVAdapter.setItem('language', 'en');
-      i18n.changeLanguage('en');
-    } else {
-      StorageMMKVAdapter.setItem('language', 'es');
-      i18n.changeLanguage('es');
-    }
-    setLanguage(value);
-  };
-
-  const handleThemeChange = (value: 'light' | 'dark') => {
-    if (value === 'light') {
-      console.log('light');
-      StorageMMKVAdapter.setItem('theme', 'light');
-      setTheme('light');
-      setThemeContext('light');
-    } else {
-      console.log('dark');
-      StorageMMKVAdapter.setItem('theme', 'dark');
-      setTheme('dark');
-      setThemeContext('dark');
-    }
-  };
-
-  useEffect(() => {
-    const value = StorageMMKVAdapter.getItem('language');
-    if (value !== undefined) {
-      setLanguage(value);
-    }
-    const valueTheme = StorageMMKVAdapter.getItem('theme');
-    if (valueTheme !== undefined) {
-      setTheme(valueTheme);
-    }
-  }, []);
+  const {
+    navigation,
+    t,
+    styles,
+    language,
+    theme,
+    handleLanguageChange,
+    handleThemeChange,
+    handlePermissions,
+    permissions,
+    permissionsReadMediaImages,
+    device,
+    handleTakePhoto,
+    photo,
+    handleReadMediaImages,
+  } = useProfile();
 
   return (
     <Layout>
@@ -72,6 +38,13 @@ const ProfileScreen = () => {
               source={{ uri: StorageMMKVAdapter.getItem('image') }}
               style={styles.image}
             />
+            {photo && (
+              <Image
+                source={{ uri: `data:image/jpeg;base64,${photo}` }}
+                style={styles.image}
+                resizeMode="cover"
+              />
+            )}
           </View>
           <View>
             <TextComponent variant="senary" fontWeight="bold">
@@ -128,12 +101,6 @@ const ProfileScreen = () => {
               onChange={() => handleThemeChange('dark')}
               selected={StorageMMKVAdapter.getItem('theme') === 'dark'}
             />
-            {/* <RadioButton
-              label="System"
-              value={theme}
-              onChange={() => handleThemeChange('system')}
-              selected={StorageMMKVAdapter.getItem('theme') === 'system'}
-            /> */}
           </View>
         </View>
         <Button
@@ -141,11 +108,31 @@ const ProfileScreen = () => {
           onPress={() => {
             StorageAdapter.removeItem('token');
             StorageMMKVAdapter.removeItem('username');
-            navigation.navigate('Login' as never);
+            navigation.reset({
+              index: 0,
+              routes: [{ name: 'Login' as never }],
+            });
           }}
-        >
-          Logout
-        </Button>
+        />
+        <Button
+          text={t('profile.content.permissions')}
+          onPress={() => handlePermissions()}
+        />
+        <Button
+          disabled={!permissions}
+          text={t('profile.content.photo')}
+          onPress={handleTakePhoto}
+        />
+        <Button
+          disabled={!permissionsReadMediaImages}
+          text={t('profile.content.readMediaImages')}
+          onPress={handleReadMediaImages}
+        />
+        {/* <Camera
+          style={StyleSheet.absoluteFill}
+          device={device}
+          isActive={true}
+        /> */}
       </View>
     </Layout>
   );

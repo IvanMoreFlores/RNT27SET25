@@ -22,6 +22,11 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>Config</key>
+	<dict>
+		<key>API_URL</key>
+		<string>$(API_URL)</string>
+	</dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -32,9 +37,17 @@
 		<true/>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
+	<string></string>
 	<key>RCTNewArchEnabled</key>
-	<false/>
+	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>FormulaCondensed-Bold.otf</string>
+		<string>FormulaCondensed-Light.otf</string>
+		<string>NeueMontrealBold.otf</string>
+		<string>NeueMontrealMedium.otf</string>
+		<string>NeueMontrealRegular.otf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -49,18 +62,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>UIAppFonts</key>
-	<array>
-		<string>FormulaCondensed-Bold.otf</string>
-		<string>FormulaCondensed-Light.otf</string>
-		<string>NeueMontrealBold.otf</string>
-		<string>NeueMontrealMedium.otf</string>
-		<string>NeueMontrealRegular.otf</string>
-	</array>
-	<key>Config</key>
-	<dict>
-		<key>API_URL</key>
-		<string>$(API_URL)</string>
-	</dict>
 </dict>
 </plist>

@@ -13,7 +13,8 @@
       "email": "Email",
       "password": "Contraseña",
       "register": "Registrarse",
-      "back": "Regresar"
+      "back": "Regresar",
+      "permissions": "Permisos"
     }
   },
   "profile": {
@@ -22,7 +23,11 @@
       "name": "Nombre",
       "email": "Email",
       "language": "Idioma",
-      "logout": "Cerrar sesión"
+      "logout": "Cerrar sesión",
+      "photo": "Tomar una fotografía",
+      "permissions": "Permisos",
+      "camera": "Cámara",
+      "readMediaImages": "Leer medias de imágenes"
     },
     "language": {
       "english": "Inglés",
