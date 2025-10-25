@@ -33,6 +33,7 @@ const LoginScreen = () => {
             placeholder={t('auth.login.password')}
             value={form.password}
             onChangeText={text => onChange(text, 'password')}
+            secureTextEntry={true}
           />
           <Button
             text={t('auth.login.login')}

@@ -6,6 +6,8 @@ import {
   TextStyle,
 } from 'react-native';
 import { RFValue } from '../../utils/responsive';
+import { ThemeContext } from '../../app/provider/theme';
+import { useContext } from 'react';
 
 interface TextComponentProps extends TextProps {
   children: React.ReactNode;
@@ -38,12 +40,14 @@ const TextComponent = ({
   fontWeight = 'normal',
   ...props
 }: TextComponentProps) => {
+  const { theme } = useContext(ThemeContext);
   return (
     <Text
       style={[
         styles[variant],
         style,
         { fontWeight: fontWeight as TextStyle['fontWeight'] },
+        { color: theme.colors.text.primary },
       ]}
       {...props}
     >
