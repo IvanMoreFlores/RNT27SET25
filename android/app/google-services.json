@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "358361183871",
+    "project_id": "curso-rn-65be9",
+    "storage_bucket": "curso-rn-65be9.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:358361183871:android:9b4c8d1d8ec3047d96714a",
+        "android_client_info": {
+          "package_name": "com.myfirtsapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPdh1pI9pr8mVbWvqJdxhlS2bmhx3NqeQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -22,7 +22,6 @@ const FavoriteScreen = () => {
       timeout: 15000,
       priority: 'high_accuracy',
     });
-    console.log(myLocation);
     setLocation(myLocation);
   };
 
